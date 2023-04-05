@@ -1,6 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -34,7 +33,6 @@ public class CardOrderTest {
 
     @Test
     void shouldTestCSS() {
-        WebDriverManager.chromedriver().setup();
         driver.get("http://localhost:7777");
         driver.findElement(By.cssSelector("span[data-test-id=name] input")).sendKeys("Иван Иванов-Иванов");
         driver.findElement(By.cssSelector("span[data-test-id=phone] input")).sendKeys("+79999999999");
@@ -48,7 +46,6 @@ public class CardOrderTest {
 
     @Test
     void shouldTestSelenium() {
-        WebDriverManager.chromedriver().setup();
         driver.get("http://localhost:7777");
         List<WebElement> inputs = driver.findElements(By.tagName("input"));
         inputs.get(0).sendKeys("Иван Иванов-Иванов");
