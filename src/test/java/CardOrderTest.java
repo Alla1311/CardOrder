@@ -16,7 +16,6 @@ public class CardOrderTest {
     private WebDriver driver;
 
     @BeforeEach
-
     void setUpAll() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOption = new ChromeOptions();
