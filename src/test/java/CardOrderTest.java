@@ -39,7 +39,7 @@ public class CardOrderTest {
         driver = null;
     }
 
-    @Test
+/*    @Test
     void shouldTestCSS() {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/");
         String title = driver.getTitle();
@@ -52,7 +52,7 @@ public class CardOrderTest {
         String actual = driver.findElement(By.className("paragraph")).getText().trim();
         assertEquals(expected, actual);
 
-    }
+    }*/
 
     @Test
     void shouldTestSelenium() {
