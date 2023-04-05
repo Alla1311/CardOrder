@@ -15,23 +15,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CardOrderTest {
     private WebDriver driver;
-    private static ChromeOptions options;
-
-    @BeforeAll
-
-    static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
-        WebDriverManager.chromedriver().setup();
-        options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-    }
 
     @BeforeEach
-    void setUp() {
-        driver = new ChromeDriver(options);
+
+    void setUpAll() {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOption = new ChromeOptions();
+        chromeOption.addArguments("--headless");
+        driver = new ChromeDriver(chromeOption);
     }
+
 
     @AfterEach
     void tearDown() {
@@ -41,8 +34,6 @@ public class CardOrderTest {
 
     @Test
     void shouldTestCSS() {
-        driver.get("https://bonigarcia.dev/selenium-webdriver-java/");
-        String title = driver.getTitle();
         driver.get("http://localhost:7777");
         driver.findElement(By.cssSelector("span[data-test-id=name] input")).sendKeys("Иван Иванов-Иванов");
         driver.findElement(By.cssSelector("span[data-test-id=phone] input")).sendKeys("+79999999999");
@@ -56,8 +47,6 @@ public class CardOrderTest {
 
     @Test
     void shouldTestSelenium() {
-        driver.get("https://bonigarcia.dev/selenium-webdriver-java/");
-        String title = driver.getTitle();
         driver.get("http://localhost:7777");
         List<WebElement> inputs = driver.findElements(By.tagName("input"));
         inputs.get(0).sendKeys("Иван Иванов-Иванов");
